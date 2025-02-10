@@ -24,6 +24,11 @@ from rest_framework.authtoken.views import obtain_auth_token
 
 from mysite.serializers.user_serializer import UserSerializer
 from mysite.views.task_view import TaskViewSet
+from mysite.serializers.user_serializer import UserSerializer
+from mysite.views.change_password_view import ChangePasswordView
+from mysite.views.generate_reset_code_view import GenerateResetCodeView
+from mysite.views.journal_view import JournalViewSet
+from mysite.views.mood_entry_view import MoodEntryViewSet
 
 
 # ViewSets define the view behavior.
@@ -35,6 +40,8 @@ class UserViewSet(viewsets.ModelViewSet):
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
 router.register(r'tasks', TaskViewSet)
+router.register(r'journals', JournalViewSet)
+router.register(r'mood_entries', MoodEntryViewSet)
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -52,14 +59,16 @@ schema_view = get_schema_view(
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
-    path('login/', obtain_auth_token, name='auth'),
-    path('', include(router.urls)),
+    path('api/login/', obtain_auth_token, name='auth'),
+    path('api/', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('admin/', admin.site.urls),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0),
          name='swagger-docs'),
-]
+    path('api/password-reset-code/', GenerateResetCodeView.as_view(), name='generate-reset-code'),
+    path('api/reset-password/', ChangePasswordView.as_view(), name='reset-password'),
 
+]
 
 
 
