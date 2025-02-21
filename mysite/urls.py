@@ -29,6 +29,7 @@ from mysite.views.change_password_view import ChangePasswordView
 from mysite.views.generate_reset_code_view import GenerateResetCodeView
 from mysite.views.journal_view import JournalViewSet
 from mysite.views.mood_entry_view import MoodEntryViewSet
+from mysite.views.survey_view import SurveyViewSet
 
 
 # ViewSets define the view behavior.
@@ -42,6 +43,7 @@ router.register(r'users', UserViewSet)
 router.register(r'tasks', TaskViewSet)
 router.register(r'journals', JournalViewSet)
 router.register(r'mood_entries', MoodEntryViewSet)
+router.register(r'surveys',SurveyViewSet)
 
 schema_view = get_schema_view(
     openapi.Info(
