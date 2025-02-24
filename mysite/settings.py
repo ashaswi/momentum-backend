@@ -146,3 +146,16 @@ EMAIL_HOST='127.0.0.1'
 EMAIL_HOST_USER=''
 EMAIL_HOST_PASSWORD=''
 EMAIL_PORT='1025'
+
+
+SWAGGER_SETTINGS = {
+    'USE_SESSION_AUTH': False,  # Disable Basic Authentication
+    'SECURITY_DEFINITIONS': {
+        'Token': {
+            'type': 'apiKey',
+            'name': 'Authorization',
+            'in': 'header',
+            'description': "Enter the token as 'Token <your_token_here>'"
+        },
+    },
+}

@@ -5,4 +5,4 @@ from mysite.models import Journal
 class JournalSerializer(serializers.ModelSerializer):
     class Meta:
         model = Journal
-        fields = '__all__'
+        fields = ['title', 'content','created_at']
