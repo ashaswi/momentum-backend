@@ -5,4 +5,4 @@ from mysite.models import  MoodEntry
 class MoodEntrySerializer(serializers.ModelSerializer):
     class Meta:
         model = MoodEntry
-        fields = '__all__'
+        fields = ['feeling', 'content', 'created_at']
