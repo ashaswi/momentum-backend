@@ -4,4 +4,4 @@ from mysite.models import Task
 class TaskSerializer(serializers.ModelSerializer):
     class Meta:
         model = Task
-        fields = ['title', 'date', 'is_completed']
+        fields = ['name','start_date','created_at','status']

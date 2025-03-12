@@ -34,11 +34,12 @@ from mysite.views.habit_view import HabitViewSet
 from rest_framework.permissions import AllowAny
 
 
+
 # ViewSets define the view behavior.
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    authentication_classes = [] 
+    authentication_classes = []
     permission_classes = [AllowAny]
 
 # Routers provide an easy way of automatically determining the URL conf.
