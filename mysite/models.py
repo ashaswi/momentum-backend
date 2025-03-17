@@ -51,6 +51,10 @@ class Question(models.Model):
         return self.name
 
 class Task(models.Model):
+    STATUSES = [
+        ('doing', 'Doing'),
+        ('done', 'Done'),
+    ]
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.TextField()
     start_date = models.DateField()

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'drf_yasg',
     'mysite',
+    'django_filters',
 ]
 APPEND_SLASH=False
 
