@@ -35,20 +35,12 @@ class MoodEntry(models.Model):
 
 class Survey(models.Model):
     name = models.TextField()
+    link = models.TextField(null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self. name
-
-class Question(models.Model):
-    survey = models.ForeignKey(Survey, on_delete=models.CASCADE,related_name="questions")
-    name = models.TextField()
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-
-    def __str__(self):
-        return self.name
 
 class Task(models.Model):
     STATUSES = [
