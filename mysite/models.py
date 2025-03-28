@@ -53,6 +53,7 @@ class Task(models.Model):
     status = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    description = models.TextField()
 
     def __str__(self):
         return self.name
