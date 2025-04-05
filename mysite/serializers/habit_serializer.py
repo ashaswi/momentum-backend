@@ -5,4 +5,4 @@ from mysite.models import Habit
 class HabitSerializer(serializers.ModelSerializer):
     class Meta:
         model = Habit
-        fields = ['name','start_date','start_time','created_at']
+        fields = ['name','start_date','start_time','created_at'] 

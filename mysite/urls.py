@@ -32,6 +32,7 @@ from mysite.views.mood_entry_view import MoodEntryViewSet
 from mysite.views.survey_view import SurveyViewSet
 from mysite.views.habit_view import HabitViewSet
 from rest_framework.permissions import AllowAny
+from mysite.views.profile_view import ProfileViewSet
 
 
 
@@ -50,6 +51,7 @@ router.register(r'journals', JournalViewSet)
 router.register(r'mood_entries', MoodEntryViewSet)
 router.register(r'surveys',SurveyViewSet)
 router.register(r'habits', HabitViewSet)
+router.register(r'profile', ProfileViewSet, basename='me')
 
 schema_view = get_schema_view(
     openapi.Info(
